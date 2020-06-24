@@ -64,6 +64,9 @@ EFI_STATUS EFIAPI UefiMain(EFI_HANDLE imageHandle, EFI_SYSTEM_TABLE *systemTable
 		return status;
 	}
 
+	// Clear BootCurrent - very lazy workaround
+	gRT->SetVariable(EFI_BOOT_CURRENT_VARIABLE_NAME, &gEfiGlobalVariableGuid, EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS, 0, NULL);
+
 	// Start the Windows EFI bootloader
 	status = gBS->StartImage(windows, NULL, NULL);
 	if (EFI_ERROR(status)) {

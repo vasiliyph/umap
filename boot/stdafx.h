@@ -10,6 +10,7 @@
 #include <Protocol/SimpleFileSystem.h>
 #include <Protocol/LoadedImage.h>
 #include <IndustryStandard/PeImage.h>
+#include <Guid/GlobalVariable.h>
 
 #include "util.h"
 
